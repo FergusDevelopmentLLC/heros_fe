@@ -1,4 +1,4 @@
-import { FETCH_HERO_REQUEST, FETCH_HERO_SUCCESS, FETCH_HERO_FAILURE } from "../actions/types";
+import { FETCH_HERO_REQUEST, FETCH_HERO_SUCCESS, FETCH_HERO_FAILURE } from "../actions/";
 
 const initialState = {
   hero: {},
