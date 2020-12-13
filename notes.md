@@ -55,6 +55,8 @@ export default (state = initialState, action) => {
 ```
 10. Create /reducers/index.js
 
+11. 
+
 
 
 
