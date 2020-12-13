@@ -9,7 +9,7 @@ const App = (props) => {
   }, [])
 
   return (
-    <div className="App">{ props.hero.name }</div>
+    <div className="App">{ props.hero ? props.hero.name : "none"}</div>
   )
 }
 
