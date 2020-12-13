@@ -7,7 +7,14 @@ export const fetchHero = (id) => {
     dispatch({ type: FETCH_HERO_REQUEST })
     
     fetch(`https://hero-api-56790.herokuapp.com/heros/${id}`, null)
-      .then(res => res.json())
+      .then(res => {
+        if(res.ok) {
+          return res.json()
+        }
+        else {
+          return Promise.reject(res.statusText)
+        }
+      })
       .then((hero) => {
         return dispatch({
           type: FETCH_HERO_SUCCESS,
