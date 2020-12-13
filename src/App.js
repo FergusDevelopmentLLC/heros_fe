@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchHero } from './actions/heroActions'
+import { useSelector } from 'react-redux'
+import Hero from './components/Hero'
 
 const App = (props) => {
 
+  const loading = useSelector(state => state.heroReducer.loading)
+  const hero = useSelector(state => state.heroReducer.hero)
+  
   useEffect(() => {
-    props.fetchHero(2)
+    props.fetchHero(1)
   }, [])
 
   return (
-    <div className="App">{ props.hero ? props.hero.name : "none"}</div>
+    <div className="App">
+      { loading ? "loading..." : <Hero hero={ hero }/> }
+    </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    hero: state.heroReducer.hero
-  }
-}
-
-export default connect(mapStateToProps, { fetchHero })(App)
+export default connect(null, { fetchHero })(App)
