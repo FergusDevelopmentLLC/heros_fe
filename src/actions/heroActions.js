@@ -1,6 +1,4 @@
-import { FETCH_HERO_REQUEST, FETCH_HERO_SUCCESS, FETCH_HERO_FAILURE } from './types'
-
-const URL_PREFIX = 'https://hero-api-56790.herokuapp.com/'
+import { FETCH_HERO_REQUEST, FETCH_HERO_SUCCESS, FETCH_HERO_FAILURE } from './'
 
 export const fetchHero = (id) => {
 
@@ -8,7 +6,7 @@ export const fetchHero = (id) => {
 
     dispatch({ type: FETCH_HERO_REQUEST })
     
-    fetch(`${ URL_PREFIX }/heros/${id}`, null)
+    fetch(`https://hero-api-56790.herokuapp.com/heros/${id}`, null)
       .then(res => res.json())
       .then((hero) => {
         return dispatch({
