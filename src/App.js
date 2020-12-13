@@ -1,6 +1,22 @@
-const App = () => {
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { fetchHero } from './actions/heroActions'
+
+const App = (props) => {
+
+  useEffect(() => {
+    props.fetchHero(2)
+  }, [])
+
   return (
-    <div className="App">App</div>
+    <div className="App">{ props.hero.name }</div>
   )
 }
-export default App
+
+const mapStateToProps = (state) => {
+  return {
+    hero: state.heroReducer.hero
+  }
+}
+
+export default connect(mapStateToProps, { fetchHero })(App)
