@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Hero = (props) => {
+const Hero = ({ hero }) => {
   return (
-  <div className="hero">{ props.hero.name }</div>
+  <div className="hero">{ hero.name }</div>
   )
 }
 Hero.propTypes = {
