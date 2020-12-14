@@ -12,7 +12,14 @@ const App = () => {
     dispatch(fetchHeros())
   }, [])
 
-  const getHeros = () => heros ? heros.map((hero) => <Hero hero={ hero } />) : "loading..."
+  const getHeros = () => {
+    if(heros) {
+      return heros.map((hero) => <Hero hero={ hero } />)
+    }
+    else {
+      return "loading..."
+    }
+  }
 
   return (
     <div className="App">
