@@ -54,6 +54,24 @@ export default (state = initialState, action) => {
 }
 ```
 10. Create /reducers/index.js
+```
+11. Create dumb Hero component in /components/Hero.js
+
+```
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const Hero = (props) => {
+  return (
+  <div className="hero">{ props.hero.name }</div>
+  )
+}
+Hero.propTypes = {
+  hero: PropTypes.object.isRequired
+}
+
+export default Hero
+
 11. Repeat process above to create heros actions, then add those reducer actions to heroreducer.js
 ```
 case FETCH_HEROS_REQUEST:
@@ -72,25 +90,7 @@ case FETCH_HEROS_FAILURE:
     ...state,
     loading: false,
     error: action.payload
-  }
-```
-11. Create dumb Hero component in /components/Hero.js
-
-```
-import React from 'react'
-import PropTypes from 'prop-types'
-
-const Hero = (props) => {
-  return (
-  <div className="hero">{ props.hero.name }</div>
-  )
-}
-Hero.propTypes = {
-  hero: PropTypes.object.isRequired
-}
-
-export default Hero
-```
+  }```
 
 12. Populate Hero component from redux stor
 switch to useSelector from mapStateToProps
